@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+     
+let students = [
+  {
+    name: "Mohammed",
+    age: 22,
+    gpa: 85,
+    isGraduated: false
+  },
+
+  {
+    name: "Sara",
+    age: 23,
+    gpa: 92,
+    isGraduated: true
+  },
+  {
+    name: "Omar",
+    age: 21,
+    gpa: 65,
+    isGraduated: false
+  }
+];
+
+
+let highestGpa = 0;
+
+for (let student of students) {
+  if (student.gpa > highestGpa) {
+    highestGpa = student.gpa;
+  }
+}
+
+
+for (let student of students) {
+
+  console.log(" Student Info :");
+
+ 
+  console.log("Name:", student.name);
+  console.log("Age:", student.age);
+  console.log("GPA:", student.gpa);
+  console.log("Graduated:", student.isGraduated);
+
+
+  console.log("Type of name:", typeof student.name);
+  console.log("Type of age:", typeof student.age);
+  console.log("Type of gpa:", typeof student.gpa);
+  console.log("Type of isGraduated:", typeof student.isGraduated);
+
+  
+  if (student.gpa < 0 || student.gpa > 100) {
+    console.log("Invalid GPA");
+  } else if (student.gpa >= 90 && student.gpa <= 100) {
+    console.log("Excellent");
+  } else if (student.gpa >= 70 && student.gpa <= 89) {
+    console.log("Good");
+  } else if (student.gpa < 70) {
+    console.log("Fail");
+  }
+
+
+  if (student.gpa === highestGpa) {
+    console.log("Top student found");
+    break;
+  }
+  
+}
+    </script>
+</body>
+</html>
