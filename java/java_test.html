@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="java_test.js"></script>
+    
+</head>
+<body>
+
+<h1 id="head">hello world </h1>
+<h2 class="className">this is class</h2>
+<h2 class="className">this is class</h2>
+<h2 class="className">this is class</h2>
+<h2 class="className">this is class</h2>
+
+<p class="query">this is query selector</p>
+<p class="queryAll">this is query  all selector1</p>
+<p class="queryAll">this is query  all selector2</p>
+<p class="queryAll">this is query  all selector3</p>
+
+<img class="img" src="cat image.jpg" alt="cat">
+<img class="img"  src="horse image.jpg" alt="horse">
+<img class="img"  src="dog image.jpg" alt="dog">
+
+<div>
+    <!--comment-->
+    hello
+<a id="first" href="www.youtube.com">youtube</a>
+<a  id="second" href="www.facebook.com">facebook</a>
+hello 
+<a id="third" href="www.linkedin.com">linkedin</a>
+</div>
+
+
+<div id="container">
+    <h3> hello HTML</h3>
+</div>
+
+   <script>
+let x=100;
+console.log(typeof x.toString());
+
+let name="ali ";
+console.log(name.repeat(3))
+
+
+//array 
+
+let names =['ahmad ',' ali' , 'mazen ' , 'omer']; //انشاء المصفوفه 
+let objects=[1,2,3,'ahmed',[4,5,6]]; //انشاء مصفوفه بداخل مصفوفه
+
+console.log(names)  // لطباعتها كامله 
+console.log(names.length) // يطبع طولهعا
+
+console.log(objects[4][1]);  //للدخول الى عنصر في المصفوفه الداخليه
+names[0]="ghosoun" ; // لتغيير عنصر في المصفوفه 
+console.log(names);  
+
+names.push('sara') ;// اضافة عنصر لاخر المصفوفه 
+names.unshift ('masah'); //اضافة عنصر في بداية المصفوفه 
+console.log(names);  
+
+names.shift();// لمسح عناصر من بدابة المصفوفه 
+console.log(names.shift());  // تعرض العنصر الذي مسحته
+
+
+names.pop();// لمسح عناصر من نهاية المصفوفه 
+
+console.log(names.pop());  // تعرض العنصر الذي مسحته
+
+console.log(names);  
+
+// الحذف تم على عناصر المصفوفه الاصليه فتم مسح ghosoun وomer
+//names[0]="ghosoun" ;     تضيف العنصر بشكل دائم ويصبح جزء منها , اما الطرق الاخرى تضيف لكن عند المسح لا يتعرف عليها ويمسح من المصفوفه الاصليه 
+
+names.splice(0,1); // لحذف عنصر محدد من المصفوفه , الرقم الاول هو اندكس بداية الحذف والرقم الثاني عدد العناصر المراد حذفها 
+console.log(names);  
+
+names.splice(0,0 , 'mona', 'lara');  //تضيف هذه العناصر الى بداية المصفوفه لاننا اخترنا الرقم الاول اندكس صفر ولا تحذف من الاصليه 
+
+//names.splice(0,1 , 'mona', 'lara');  //تضيف هذه العناصر الى بداية المصفوفه لاننا اخترنا الرقم الاول اندكس صفر و تحذف من الاصليه 
+
+// اذا استخدمت سبلايس بدون كتابة عناصر مع الارقام فهي هكذا تحذف 
+// اذا استخدمتها مع كتابة عناصر فهي تضيفهم 
+// الرقم الاول يعبر عن اندكس مكان الاضافه والرقم الثاني يعبر عن اذا كنت اريد حذف العنصر الاصلي الذي يقع في الاندكس ام اريد ازاحته بدون حذفه 
+
+console.log(names);  
+
+names.slice(0,3); //تقطع من المصفوفه دون التاثير بالمصفوفه الاصليه 
+//الرقم الاول هو اندكس البدابه والرقم الثاني هو اندكس النهايه زائد واحد 
+// لو بدي اقطع لحد اندكس 2 بكتب النهايه 3 
+
+console.log(names.slice(0,3)); //تطبع القطعه هذه 
+
+//cosole.log(names.indexOf('ahmad',1))  ;//للبحث عن عنصر 
+//القيمه الاولى هي العنصر والثانيه هي اندكس بداية البحث لو ما كتبت لبداية البحث رح يبحث من اول من الصفر
+
+//cosole.log(names.lastIndexOf('ahmad'));// للبحث عن عنصر لكن تبدا من نهاية المصفوفه 
+
+//اذا لم تجد العنصر تعيد  القيمه سالب واحد واذا وجدته تعيد اندكس اول مكان وجدته فيه بمعنى انها تعيد اندكس واحد فقط 
+ 
+console.log(names.includes('ali')); //   تبحث عن العنصر وتعيد ترو او فولس 
+console.log(names.includes('ali',2));// يمكن اختيار اندكس لمكان بداية البحث 
+
+
+console.log(names.reverse);//لعكس ترتيب المصفوفه 
+console.log(names.sort); //لترتيب المصفوفه على الاحرف او تصاعدي اذا كانت ارقام 
+
+
+let arr1=['ahmed', 'ali','mazen'];
+let arr2=['lara','sara','lana'];
+
+arr1=arr1+arr2;  //لدمج المصفوفتين في المصفوفه الاولى
+//arr1+=arr2 // نفس السطر السابق 
+
+console.log(typeof arr1); //يعطي النتيجه سترينغ وليس مصفوفه 
+
+console.log(arr1.concat(arr2,'mona'));//يدمج المصفوفتين ويضيف منى 
+
+
+//conditions 
+
+let y="mona";
+let z="mona";
+ console.log(z==y); // يجب وضع اشارتين مساواه , اذا وضعت وحده يجعلهم متساويين ويصبح ليس سؤال تحقق
+
+let ask=prompt("enter your email") //يظهر على الشاشه بوكس فيه الجمله ومكان كتابة الايميل
+ let email="ghosoun123@gmail.com"; // ايميل مخزن 
+ console.log(ask==email); // يقارن بينهم 
+
+
+
+ let Name='ghosoun';
+ console.log(Name.toUpperCase());
+ console.log(Name.toLowerCase());
+
+
+ console.log(5=="5"); //النتيجه المفروض تكون فولس لانه وحده رقم ووحده سترينغ , لكن هاي بتقارن القيم بس بدون النوع 
+console.log(5==="5"); //هيك بتقارن القيمه والنوع 
+
+console.log(5!=5); //للتحقق من عدم المساواه 
+
+let product="tv";
+let size=50;
+let salary=10000;
+
+console.log(salary>1000 &&size==50); //يجب تحقق الشرطين
+
+console.log(salary>1000 || size==50); //يتحقق شرط واحد على الاقل
+ 
+
+//if statement 
+
+let num1=5;
+let num2=4;
+if ( num1 >= num2) {
+
+console.log("hello")
+}
+
+else if (num1<num2) {
+console.log("what")
+}
+
+
+let grade= prompt('what  is your grade');
+
+if (grade >=90){  
+
+    document.write("excellent")
+}
+
+else if (grade >=80 && grade<= 89){
+
+    document.write("verry good")
+}
+
+else if (grade >=70 && grade<= 79){
+
+    document.write("verry good")
+}
+
+ else 
+{
+
+    document.write("try again")
+}
+
+
+
+let age=19;   // طريقه لكتابة الشرط بدون if  
+
+age>18 ?
+document.write("hello ")  //بدون فاصله منقوطه اذا ما كملت الشروط 
+
+:age<18 && age> 10?
+
+document.write(" try latter")
+
+:   //بدون كتابة اشي معناها else 
+document.write(" try latter") ; //اخر شرط فبقدر احط فاصله منقوطه 
+
+
+
+//حفظ الشرط داخل المتغير 
+let result= age>18 ?     //الشرط اللي بيتحقق النتيجه تبعه بتنحفظ داخل المتغير result
+document.write("hello ")
+
+:age<18 && age> 10?
+
+document.write(" try latter")
+
+:
+document.write(" try latter") ; 
+   
+
+
+//switch 
+
+let role=prompt("what is your role")
+
+switch(role)  //داخلها الاشي اللي بدي اتحقق منه 
+{
+    case "admin":  // الحالات بتكون الاشي اللي رح يمرره للمقارنه 
+        document.write("creat , update, delete");
+         break;  // بتخلي اذا تحققت الكيس يطلع من الswitch 
+         // اذا ما حطيتها بتنفذ اللي بعدها كامل لحد ما يلاقي بريك 
+         
+    case "moderator":
+         document.write("creat , update");
+         break;
+   
+   case "user":
+    document.write("read");
+         break;
+    
+    default :  // اذا ما تحق ولا شرط بتتنفذ نفس فكرة else
+        document.write("hello");
+        }
+
+// الفرق بين if & switch  
+// ال if بقدر احط شروط اكبر و اصغر 
+//الswitch بس بتقارن مساواه ما فيها اكبر واصغر 
+
+
+// loops 
+//for (start , condition, steps)
+let i=0
+for (i; i<5 ; i++ )  // لما يوصل عند 5 ما رح ينفذ 
+{  // اذا بدي العداد ما يكون بمقدار واحد بحط 
+    // i+=2   هيك بمشي خطوتين 
+document.write("hello world");
+}
+
+document.write("i=" + i); // والمتغيرات التي تُعرّف بـ let يكون نطاقها (scope) داخل البلوك فقط (أي داخل { } الخاصة بالـ for).
+// سيظهر ReferenceError: i is not defined
+// اذا بدي يتعرف عليها لازم اعرفها برا الفور 
+//بقدر اعرفها برا واعطيها قيمة جوا الفور عادي وهيك لما اطبعها بعدين رح تكون قيمتها 5
+
+
+let students =["sara" , "mona", "lara" , "hala"]
+
+for (let h=0; i<4 ; h++) {
+console.log(names[h] ); // بلف على المصفوفه وحطيت h بدل الاندكس 
+}
+
+//nested loop 
+
+let car=['BMW','Mercedes', 'Honda'];
+let models=[2020,2021,2022];
+
+for (let v= 0 ; v <car.length; v++) {
+console.log( 'Car:' +car[v] );
+
+for  (let r=0 ; r<models.length ; r++) {
+console.log( 'model:' + models[r] );
+}
+
+console.log('-----------------') //يطبعها لما يخلص الداخليه اول مره بحط الخطوطط قبل ما يرجع يبدا مره ثانيه بالخارجيه
+}
+
+//continue and break 
+
+let users= ['ali','gamal', 'mazen ', 1,2,3,4, 'oday', 'yousef'];
+ for (let i=0 ; i<users.length; i++){
+ if ( typeof users[i]=='number'){
+     continue; //اذا لقى ارقام بعمل سكيب ما بنفذ الجمله اللي بعدها يعني بطلع لبرا وبكمل اللوب 
+ }
+ console.log (users[i]);
+ }
+
+
+
+let user= ['ali','gamal', 'mazen ', 1,2,3,4, 'oday', 'yousef'];
+ for (let i=0 ; i<user.length; i++){
+ if (  user[i] !='gamal'){
+     continue; // اذا العنصر مش جمال كمل و اذا جمال رح يطبع الجلمه 
+    }
+
+ console.log (user[i]);
+ }
+
+
+
+
+let User= ['ali','gamal', 'mazen ', 1,2,3,4, 'oday', 'yousef'];
+ for (let i=0 ; i<User.length; i++){
+ if (  User[i] =='mazen'){
+     break; // بطبع العناصر لحتى يلاقي مازن بعمل بريك وبطع ما بطبعها ولا بطبع اللي بعدها 
+
+ }
+ console.log (User[i]);
+ }
+
+ // while & do while
+let j=0;  // يجب تحقق الشرط ليدخل وينفذ
+ while( i<3) {
+    console.log("hello")
+    i++;
+ }
+
+
+ let m=0; // اذا لم يتحقق الشرط ينفذ الدو مره واحده 
+ do {   // تنفذ مره واحده على الاقل 
+     console.log("hello")
+    m++;
+ }
+ while(m<3);
+
+ // functions : بقدر احط داخلها كود وارجع استخدمه ب اي مكان بالكود بدون ما ارجع اكتبه يعني بستدعي الفنكشن بس
+//قواعد التسميه نفس قواعد تسمية المتغيرات 
+function hello (){
+ consol.log("hello function");
+}
+
+hello();  //استدعاء الفنكشن ليعمل 
+
+function uuser (name){  //ال name هنا اسمها parameter
+    console.log("hello" +name);
+}
+uuser('ali'); //مررت القيمه هاي للاسم بقدر امررله اسم بدخله المستخدم 
+
+
+
+function calcAge(age){
+    let result= age*356;
+    console.log("result:" +result);
+}
+ calcAge(25); // بعطيها القيمه تمررها للفنكشن وتنفذ ما داخله عيها , لو ما كتبت اشي بتعطي NaN
+
+function pro( price, taxes, ads){
+let product= price+taxes ;
+let result =product +ads
+console.log(result);
+//return result ;
+
+}
+pro (200,2.5 , 10);   // ما بقدر استخدم result برا الفنكشن 
+//الحل استخدم return  (يجب ان تكون اخر سطر في الفنكشن , ما بعدها لا يتم تنفيذه )
+// let x=pro (200,2.5 , 10);   //لتخزين النتيجه 
+//console.log(x);
+// الreturn بترجع القيمه على الفنكشن , وانا خزنت الفنكشن بمتغير , فالمتغير رح يحمل قيمة او ناتج الفنكشن وهيك بقدر اطبع ناتج الفنكشن من الاكس
+
+
+
+
+function days(age){
+    let result= age*365;
+   return result; 
+}
+let Days=days(26);
+console.log(Days);
+
+
+
+function hours(days){
+    let result= days*24;
+   return result; 
+}
+
+let Hours=hours(Days);
+console.log(Hours);
+
+
+//hoisting الحل استخدام let 
+//في الفنكشن حلها تعريف الفنكشن 
+//  let hello =function() { ------}  
+
+console.log('hello world');
+console.log('hello world');
+console.log('hello world');
+console.log('hello world');
+
+var f=10 ; 
+var g=20 ;
+var t=30 ; 
+
+//scope and self invoced
+
+//global 
+var a=10;
+
+//local 
+function hello (){
+  console.log("hello "+a);
+}
+hello();
+
+
+//استخدام الاسم للفنكشن الهدف منه استدعاؤه , هذه الطريقه تجعلنا لا نمتب اسم للفنكشن 
+(   function()
+{
+    console.log("hello");
+    var gg=6;
+    let cc=7;
+}
+)(); 
+
+ //console.log(cc);  // تعطي خطأ لان القيمه معرفه فقط داخل الفنكشن بسبب وضع الفنكشن بين قوسين 
+
+
+ function welcome(name=" user"){  //اعطيته قيمه افتراضيه 
+ console.log(`welcom ${name}`);
+ }
+welcome(); //اذا ما اعطيته قيمة بستخدم كلمة user
+
+
+
+function calc(...num){ 
+    //لو ما بعرف كم قيمه داخله او ما بدي احدد عدد
+//   ...num بعمل مصفوفه لا نهائيه عشان استقبل عدد لا نهائي من القيم
+   let result =0;
+
+for (let i=0 ; i<num.length ; i++) {// عشان استخدم كل القيم بعمل عليهم لوب 
+ result+=num[i];
+ }
+console.log(result);
+} 
+calc(); //هنا نضيف القيم المطلوب جمعها معا
+
+
+//arrow function
+//بقدر اشيل كلمة فنكشن واخلي بس الاقواس  واحط السهم 
+//وبقدر اشيل الريتيرن  let b= () =>1;بشرط يكون داخلها اشي واحد يتنفذ 
+//بقدر اشيل الاقواس اذا كان عندي براميتر واحد بس 
+let b= () =>{
+    return 1;
+}
+
+console.log(b("بحط قيمه هون"))
+
+ // ======================================================================================
+
+//object
+
+let cars ={
+    type:"BMW" ,
+    price: 500000 ,
+    color:['white', 'black','red'],
+    model:2020,
+    hi: function() {
+        return 'hello';
+    }
+};
+
+console.log(cars.type); //للوصول الى عنصر داخل الاوبجت
+console.log(cars.hi());
+
+
+
+// nested object
+
+let user$ = {
+    // property
+    firstName:'abdelrahman',
+    lastName:'gamal',
+    email:'test@gmail.com',
+    age:26,
+    skills:['html','css','js','python','php'],
+    active:false,
+    phoneNumber:{  //اوبجكت بداخل اوبجكت
+        first:'0106547687',
+        second:'0126574687',
+    },
+    address:{
+        Egypt:'elmohandsen',
+        Uae:'abu dhabi',
+    },
+    // method
+    isActive:function(){
+        if(user$.active === true){
+            return 'hello user';
+        }
+        else{
+            return 'sorry you are not active';
+        }
+    },
+    getAge:function(){
+        if(user$.age >= 18)
+        {
+            return 'availalbe';
+        }
+        else{
+            return 'unavailable';
+        }
+    },
+};
+console.log(user$.age);
+console.log(user$.isActive());
+console.log(user$['getAge']());//نفس السطر اللي فوق بس بطريقه ثانيه
+console.log(user$.phoneNumber.first); //دخلت على عنصر داخل اوبجكت بداخل اوبجكت 
+
+
+// انشاء اوبجكت فارغ والاضافه خارجه
+
+let uu={
+age:13,
+}
+uu.name='ahmed'; // انشاته برا الاوبجكت , لو كان موجود بعدل قيمته لو مش موجود بنشئه
+console.log(uu.name);
+uu.age=18; //بعدل القيمه 
+uu.fun= function(){ //ضفت فنكشن 
+    console.log('hello');
+}
+
+
+// object creat 
+//انشاء اوبجكت جديد من اوبجكت قديم 
+
+let yes={
+    name:'ghosoun',
+    getName:function(){
+return `hello ${yes.name}`;
+    }
+}
+let yes2=Object.create(yes);
+console.log(yes2.name);//بياخذ محتويات الاوبجكت القديم مع القيم المخزنه فيها 
+yes2.name='ali';
+console.log(yes2.name) ;//بتتعدل بس على الاوبجكت الجديد لكن الفنكشن بظل يرجع الاسم الجديد
+console.log(yes.name); //بتظل القيمه القديمه 
+
+yes2.age=24; //اضفناه على الاوبجكت الجديد , يمكن اضافته من داخل creat
+console.log(yes2.age);
+
+console.log(yes2.getName()); 
+//بتتعدل الاسم بس على الاوبجكت الجديد لكن الفنكشن بظل يرجع الاسم القديم
+//لانه الفنكشن لما كتبته حطيت return `hello ${yes.name}`
+//الحل اكتب بالفنكشن return `hello ${this.name}
+//استخدام this  بدل اسم الاوبجككت لجعله يعمل في اي مكان نستخدمه مع الاوبجكت 
+
+
+//دمج الاوبجكتس
+
+let a1={
+    num1:1
+
+}
+let a2={
+    num2:2
+}
+
+let a3={
+    num3:3
+}
+
+let a4=Object.assign(a1,a2); //انشات اوبجككت جديد وحطيت فيه محتويات الاوبجكتس القديمه مع بعض دمجتهم , بقدر اضيف معهم اوبجكت جديد ما تم انشاءه قبل ف بينشئه ويدمجه معهم 
+console.log(a4);
+a4.num1=3; //تتعدل فقط في الاوبجكت 4 
+a4.name='sara'; //ضفته بس على الاوبجكت 4
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+// DOM : document object model 
+//التعامل مع HTML , الوصول للعناصر 
+
+// في بداية الbody انشت <h1 id="head">hello world </h1>
+
+document.getElementById('head'); //حصلت عليه من خلال Id , بستخدم هذا السطر بكل مره بدي استخدمه ة
+// الحل الاسهل اخزنه بمتغير ,واستخدمه من خلال اسم المتغير 
+let head=document.getElementById('head'); 
+console.log(head);
+head.style.color='blue';
+//بقدر استخدم كلاس لمجموعة عناصر اتحكم فيهم مع بهض , بينما الايدي لعنصر واحد بس
+
+document.getElementsByClassName('className');  //بجيب كل العناصر اللي تنتمي للكلاس وبحطهم ب مصفوفه , هذا السطر ما بقدر منه اعدل اشي لانه مش واصل لعنصر معين active
+
+let test=document.getElementsByClassName('className')[1];
+test.style.color='red';
+
+//يمكن الوصول للعنصر من خلال التاغ لكنه سيجلب كل العناصر التي تحمل نفس التاغ ويضعها في HTMLCollection فنقوم نحن بوضع اندكس للتاغ الذي نريده 
+
+let tag=document.getElementsByTagName('h2');
+tag[0].style.color='red'; //طريقه اخرى لاختيار عنصر واحد , التعريف يون عام وفي الستايل احدد العنصر الذي اريده
+
+let Query=document.querySelector('p');
+//let Query=document.querySelector('.query');// بستخدم اسم الكلاس مع رمزه او الايدي مع الرمز 
+Query.style.color='yellow';
+// لو عندي اكثر من عنصر بنفس التاغ او نفس الكلاس بتجيب اول  واحد بس بتنفذ عليه 
+
+let Querys=document.querySelectorAll('.queryAll');
+Querys[1].style.color='green';
+
+//للوصول الى الbody او ال tittle الذي بداخل الhead
+document.write("<br><br>");
+
+let body=document.body;
+let title=document.title;
+document.write(title);
+title='test java page';
+document.write("<br><br>");
+document.write(title);
+
+
+//للتعامل مع الصور 
+
+let image=document.images;
+image[0].src="horse image.jpg";
+
+
+//التعامل مع الlinks
+let link = document.links;
+link[0].href="www.instagram.com"; //تغيير اللنك
+
+//لمعرفة attributes لاي تاغ 
+let img= document.getElementsByClassName('img')[0];
+console.log( img.hasAttribute('src'));//يعيد تر او فولس حسب وجده او لا
+
+console.log( img.attributes); //تعرض الموجودين 
+console.log( img.attributes[1]); //تعرض الثاني منهم فقط
+ 
+img.setAttribute('alt' ,'sara'); //لو موجود بتعدله ولو مش موجود بتضيفه
+console.log(img.alt);
+
+img.removeAttribute('class');
+
+
+//sibling and parent 
+//للوصول الى عنصر من خلال ما قبله او ما بعده من العناصر
+let element =document.getElementById('second');
+
+console.log(element.previousElementSibling);//تشير الى العنصر الذي قبله شرط يكون عنصر بتاغ
+console.log(element.previousSibling);//تشير الى ما قبله ايا كان كومنت او نص بدون تاغ او اي شي 
+console.log(element.nextElementSibling); // تشير لما بعده
+console.log(element.nextSibling);
+
+
+//inner and outer HTML 
+let container= document.getElementById('container');
+console.log(container.innerHTML); //يجلب محتويات الديف الداخليه فقط 
+console.log(container.outerHTML); //يجلب الديف بكل محتوياته 
+
+container.outerHTML ="<p> hello outer HTML</p>"; //يبلدل الكونتينر كامل
+console.log(container.outerHTML); 
+
+container.innerText+="hello text" ; // يبدلها بنص عادي 
+
+
+//css style  : element.style.property
+
+container.style.backgroundColor="yellow";
+
+
+//css style  : element.style.cssText
+
+container.style.cssText= "color :red;"; 
+
+container.style.removeProperty("background"); //لحذف خاصيه موجوده على العنصر
+
+container.style.setProperty('color' , 'green'); //طريقه ثالثه للاضافه 
+
+
+//creat element
+
+// 1- انشاء العنصر let container = document.createElement(‘div’); 
+// let head = document.createElement(‘h1’); 
+// let img = document.createElement(‘img’);
+//  // 2- اضافة المحتوى 
+// let content = document.createTextNode(‘hello world’);
+//  head.appendChild(content); 
+// img.src = ‘img/1.jpg’;
+//  img.style.width = ‘100px’; 
+// // 3- اضافة العنصر في المكان المراد 
+// container.appendChild(head); 
+// container.appendChild(img);
+//  document.body.appendChild(container) 
+// console.log(container);
+//  container.style.background = ‘#666’;
+//  container.style.color = ‘#fff’; 
+// container.style.padding = ’10px’; 
+// container.style.textAlign = ‘center’;
+
+//مشروع عمل card 
+
+let names = ['ahmed','ali','gamal','abdelrahman'];
+let ages= ['18 years old','17 years old','22 years old','20 years old'];
+let container = document.createElement('div'); //انشاء العنصر ديف
+document.body.appendChild(container); // اضافة الكونتينر الى الbody
+container.style.textAlign = 'center'; //تنسيق المحتوى في الوسط 
+function element(name,ages) //عمل فنكشن للكاردز لكي لا اضطر الى كتابة اكودا لكل كارد 
+{
+    // elements
+    let card = document.createElement('div');
+    let title = document.createElement('h2');
+    let age = document.createElement('p');
+    let img = document.createElement('img');
+    // content
+    let head = document.createTextNode(name);
+    let ageContent = document.createTextNode(ages);
+    img.src = 'img/1.jpg';
+    title.appendChild(head);
+    age.appendChild(ageContent);
+    // style
+    card.style.width = '200px';
+    card.style.background = '#444';
+    card.style.color = '#fff';
+    card.style.padding = '10px';
+    card.style.margin = '2px';
+    card.style.display = 'inline-block';
+    img.style.width = '100%';
+    card.appendChild(title);
+    card.appendChild(age);
+    card.appendChild(img);
+    container.appendChild(card);
+}
+
+element(); //استدعاء الفنكششن ليعمل , هنا يعمل كادر وحده لانه تم استدعاؤه مره واحده 
+
+//الحل اعمل لوب ليتكرر الكادر عدد مرات  محدده
+for(let i = 0; i < 4; i++)
+{
+    element(names[i], ages[i]);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
