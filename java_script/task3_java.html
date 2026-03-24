@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//function1
+
+function tellFortune(job, location, partner, children) {
+  console.log(`You will be a ${job} in ${location}, and married to ${partner} with ${children} kids.`);
+}
+tellFortune('software engineer', 'Jordan', 'Alice', 3);
+
+//function2
+function calculateDogAge(age) {
+  let dogAge = age * 7;
+  console.log("Your doggie is " + dogAge + " years old in dog years!");
+}
+ calculateDogAge(1);
+
+ //function3
+ function calculateSupply(age, amountPerDay) {
+  let maxAge = 100;
+  let remainingYears = maxAge - age;
+  let result = remainingYears * 365 * amountPerDay;
+
+  console.log("You will need " + result + " cups of tea to last you until the ripe old age of " + maxAge);
+}calculateSupply(30, 3);
+
+ //function4
+ //what is the error
+//function double(cat) {   //The parameter is defined as "CAT", but when returning it is written as "X", so it indicates that the X is not defined.
+ // return 2  x;   //On the return , the number 2 and X with a space between them. The correct way is to use, for example, a mathematical operation between them .
+
+//function double(7) { //we cannot use a number as a parameter; it must be a variable name.
+ // return 2  7; //On the return , the number 2 and 7 with a space between them. The correct way is to use, for example, a mathematical operation between them .
+//function double('7') {  //A string cannot be used as a parameter; it must be a variable name.
+
+  //  return 2 'x';  
+//}
+
+
+//function5 
+
+//fix these functions
+//func double1(x {
+//  return 2  x ;
+//}
+
+//functiondouble2 x)
+//return 2  x;
+//}
+
+//function (x) double3 {
+ // return 2  x;
+
+
+//solution function5:
+function double1(x) {   //The bracket was not spelled correctly.
+  return 2 * x; //There was no connection between 2 and x, so I placed a multiplication operation.
+}
+
+function double2(x) { //The word "function" and the name of the function were separated by no space, and the bracket for the parameters were not written correctly.
+  return 2 * x; //There was no connection between 2 and x, so I placed a multiplication operation.
+}
+
+function double3(x) { //The parameter is written before the function name.
+  return 2 * x; //There was no connection between 2 and x, so I placed a multiplication operation.
+
+}
+//NOTE : All functions will not work because they were not called.
+// call functions 
+console.log(double1(3)); // 6
+console.log(double2(4)); // 8
+console.log(double3(5)); // 10
+
+
+
+//function6
+function canIGetADrivingLicense(age) {
+  if (age >= 20) {
+    return "yes you can";
+  } else {
+    let years = 20 - age;
+    return "please come back after " + years + " years to get one";
+  }
+}
+
+console.log(canIGetADrivingLicense(21));
+// yes you can
+
+console.log(canIGetADrivingLicense(17));
+// please come back after 3 years to get one
+
+console.log(canIGetADrivingLicense(15));
+//  please come back after 5 years to get one
+
+
+
+//function7
+//way1 using if 
+function sameLength(str1, str2) {
+  if (str1.length === str2.length) {
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log(sameLength("tree", "clue")); // true
+console.log(sameLength("tree", "car"));  // false
+
+//way2 using === direct 
+
+function sameLength2(str1, str2) {
+  return str1.length === str2.length;
+}
+console.log(sameLength2("tree", "clue")); // true
+
+
+// function 8
+
+function average(a, b, c, d, e) {
+  return (a + b + c + d + e) / 5;
+}
+console.log(average(1, 2, 3, 4, 5)); 
+// 3
+
+console.log(average(5, 7, 9, 3, 5)); 
+// 5.8
+
+
+//function 9
+//Each time it return a random number between zero and one
+function randomNumber() {
+  return Math.random();
+}
+console.log(randomNumber());
+console.log(randomNumber());
+
+
+//function 10
+//Each time it return a random number between 2 numbers you select as argumnts
+
+function randomBetweenNumbers(min, max) {
+  return Math.random() * (max - min) + min;
+}
+console.log(randomBetweenNumbers(3,100));
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
