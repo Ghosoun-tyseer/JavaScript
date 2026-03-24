@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--<element EVENT=”CODE JAVASCRIPT“>….</element>--> 
+<!--اضافة الحدث للعنصر بشكل مباشر و هنا يمكنك اضافة الحدث مباشرة الى عنصر html -->
+<button onclick="console.log('hello world')">click</button>
+<button id="element">element</button>
+
+<button id="btn">btn</button>
+<button id="btn2">btn2</button>
+
+
+<div id="div">
+      <p>Lorem ipsum dolor sit amet.</p>
+</div>
+
+<input type="text" placeholder="input" >
+<br><br>
+<input id="input" type="text" placeholder="txt">
+
+<script>
+//اضافة الحدث في الجافاسكريبت و لفعل ذلك تحتاج الى العنصر الذي تريد وقوع الحدث عليه و من ثم تضيف اليه الحدث
+//element.EVENT=FUNCTION;
+
+let element = document.getElementById('element'); 
+element.onclick=function(){console.log('hello');
+};
+
+//استخدام addEventListener :element.addEventListener(“Event”,FUNCTION);
+let btn=document.getElementById('btn'); 
+
+//رح يظهر نتيجة اخر واحد بس يعني بتنفذ اشي واحد على العنصر
+
+btn.onclick=function(){
+    console.log("first");
+    document.body.style.background="red";
+}
+
+btn.onclick=function(){
+    console.log("seconed");
+    btn.style.background="blue";
+}
+
+btn.onclick=function(){
+    console.log("third");
+    btn.style.color="white";
+}
+ // الحل استخدام addEventListener   بتخليني انفذ اكثر من امر على نفس لالعنصر
+let btn2 = document.getElementById('btn2'); 
+btn2.addEventListener( "click" , function()
+{ btn2.style.background="blue";});
+
+
+btn2.addEventListener( "click" , function()
+{ document.body.style.background="red";});
+
+btn2.addEventListener( "click" , function()
+{ btn2.style.color="white";});
+
+
+//فرق اخر بينهم انه onclick  ما بتطلع ايرور لما تعمل خطا 
+//addEventListener بتطلع ايرور لما اكتب اشي خطا 
+
+//btn.onclick='test';   // لازم تعطي ايرور لانه بعد المساواه لازم اكتب ايفنت مش سترينغ 
+
+//btn2.addEventListener( "click" ,"test");
+
+
+let div = document.getElementById('div');
+
+  div.addEventListener('click', function() {
+        // تغيير لون الخلفية عند النقر
+         div.style.backgroundColor = this.style.backgroundColor === 'lightblue' ? 'lightgreen' : 'lightblue';
+    //كل مرة تضغط على الـ div، هذا السطر يتحقق من اللون الحالي ويغيره إلى اللون الآخر. يتبدل بين الأزرق والأخضر عند كل نقرة.
+        });
+
+    //hover (mouseover)
+    div.addEventListener('mouseover', function() {
+         div.style.color = 'red';
+    });
+
+    div.addEventListener('mouseout', function() {
+         div.style.color = 'green';
+    });
+
+//-----------------------------------------------------------------------------------------
+//localStorage and sessionStorage : مساحات تخزين للبيانات في المتصفح 
+//يخزن localStorage البيانات بدون تاريخ انتهاء الصلاحية. لا يتم حذف البيانات عند إغلاق المتصفح ، وتكون متاحة للجلسات المستقبلية. كائن sessionStorage الذي يخزن البيانات لجلسة واحدة. (يتم حذف البيانات عند إغلاق نافذة المتصفح)
+//العمليات : اضافه , حذف , قراءه 
+//localStorage = 5MB-10MB 
+//sessionStorage =5MB
+
+//طريقة الكتابه
+window.localStorage
+//او 
+localStorage
+ 
+//اضافة عنصر جديد في localStorage
+
+//localStorage.setItem(key, value);
+ localStorage.setItem('name', 'ghosoun');
+//او 
+//localStorage.key = value;
+localStorage.age = 24; // ال key&value لازم يكونو string, لو كتبتها رقم رح ياخذها سترينغ
+ 
+//لقراءة البيانات من localStorage
+localStorage.getItem('name');
+//او 
+localStorage.name;
+
+console.log( localStorage.getItem('name'))
+ console.log(typeof localStorage.getItem('age'))
+//
+localStorage.user=JSON.stringify({ //بعثتها انها سترينغ 
+    Name: 'ghosoun',
+ age:25,
+})
+ 
+
+console.log(typeof localStorage.getItem('user'))
+
+console.log(typeof JSON.parse(localStorage.getItem('user')) )
+console.log(localStorage.getItem('user'))
+
+
+//بقدر اجيب key $&values
+console.log(localStorage.key(1)) //localStorage.key(index) حسب ترتيب كتابتهم في الكود
+
+for (let i=0; i<localStorage.length;i++){
+     let key = localStorage.key(i);         // الحصول على المفتاح
+    let value = localStorage.getItem(key); // الحصول على القيمة
+    console.log("key:"+key+" , value:"+value)
+   
+}
+//حذف عنصر واحد من ال localStorage
+//localStorage.removeItem('age');
+ 
+//حذف جميع العناصر من ال localStorage
+//localStorage.clear();
+
+//session storage : يتم تخزينها فقط عند فتح التاب وتحذف عند الاغلاق 
+
+
+//-----------------------------
+//مثال لو عملت reload للصفحه بظل اللي كتبته موجود , 
+let txt= document.getElementById('input');
+
+if (localStorage.length>0){
+    input.value=localStorage.getItem('input')
+}
+txt.onkeyup=function(){   //key,value|
+    localStorage.setItem('input',input.value)
+}
+
+</script>
+</body>
+</html>
