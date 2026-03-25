@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+</head>
+
+<body style="font-family: Arial;">
+<!--part1-->
+<h2>Display the form in one card using localStorage</h2>
+<fieldset style="border: 3px solid black;">
+
+<form id="form">
+
+<label for="name">Name:</label>
+ <input type="text" id="name"><br><br>
+
+ <label for="age">Age:</label>
+<input type="number" id="age"><br><br>
+
+ <label for="gender">Gender:</label>
+<input type="text" id="gender"><br><br>
+
+ <label for="birth">Birth Date:</label>
+ <input type="date" id="birth"><br><br>
+
+ <label for="image">Upload Image: </label>
+<input type="file" id="image"><br><br>
+
+<hr>
+ <label for="desc">Description:</label>
+ <input type="text" id="desc"><br><br>
+
+ <label for="major">Major & University: </label>
+<input type="text" id="major"><br><br>
+
+ <label>Programming Language:</label>
+
+<input type="checkbox" value="HTML" class="lang">HTML
+<input type="checkbox" value="CSS" class="lang">CSS
+<input type="checkbox" value="JavaScript" class="lang">JavaScript
+<br><br>
+
+<hr>
+ <label for="age">Siblings Number:</label>
+ <input type="number" id="siblings"><br><br>
+
+ <label for="age">Description of Siblings:</label>
+ <input type="text" id="sibDesc"><br><br>
+
+<button  id ="submit"type="button">Submit</button>
+</fieldset>
+</form>
+
+<hr>
+
+<div id="card"   style=" border: 1px solid black; padding: 7px; "></div>
+
+<!--part2-->
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<select id="font">
+  <option value="Arial">Arial</option>
+  <option value="Fantasy">Fantasy</option>
+  <option value="Courier New">Courier</option>
+</select>
+
+<select id="size">
+  <option value="12px">12px</option>
+  <option value="15px">15px</option>
+  <option value="20px">20px</option>
+</select>
+
+<input type="checkbox" id="italic"> Italic
+<input type="checkbox" id="bold"> Bold
+<input type="checkbox" id="underline"> Underline
+
+<div id="textBox" style="  border: 2px solid black;  padding: 20px; width: 400px;">
+  the quick brown fox over the lazy dog
+</div>
+
+<!--part3-->
+<button id="backToTop" style=" position: fixed; bottom: 20px;  right: 10px; "> Top</button>
+
+<script>
+function saveLocal(){
+   
+    localStorage.setItem("Name", document.getElementById("name").value); 
+    localStorage.setItem("Age", document.getElementById("age").value);
+    localStorage.setItem("Gender", document.getElementById("gender").value);
+    localStorage.setItem("Birth", document.getElementById("birth").value);
+    localStorage.setItem("Description", document.getElementById("desc").value); 
+    localStorage.setItem("Major", document.getElementById("major").value); 
+
+    // checkbox 
+    let langs = []; 
+    let checkboxes = document.getElementsByClassName("lang");
+    for(let i = 0; i < checkboxes.length; i++){
+        if(checkboxes[i].checked){
+            langs.push(checkboxes[i].value);
+        } 
+    } 
+    localStorage.setItem("Languages", langs.join(", "));
+
+    localStorage.setItem("Siblings", document.getElementById("siblings").value);
+    localStorage.setItem("SibDesc", document.getElementById("sibDesc").value);
+
+    // save image
+    let imageInput = document.getElementById("image");
+    const file = imageInput.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function() {
+            localStorage.setItem("image", reader.result);
+          
+        };
+        reader.readAsDataURL(file);
+   
+}
+}
+
+function showLocal() {
+    let card = document.getElementById("card");
+    let savedImage = localStorage.getItem("image");
+   
+    card.innerHTML = `
+        <h3>Form Data from last </h3>
+        <p><strong>Name:</strong> ${localStorage.getItem("Name") }</p>
+        <p><strong>Age:</strong> ${localStorage.getItem("Age")}</p>
+        <p><strong>Gender:</strong> ${localStorage.getItem("Gender") }</p>
+        <p><strong>Birth:</strong> ${localStorage.getItem("Birth") }</p>
+        ${savedImage ? `<p><img src="${savedImage}" style="width:150px;"></p>` : ''}
+        <p><strong>Description:</strong> ${localStorage.getItem("Description")}</p>
+        <p><strong>Major:</strong> ${localStorage.getItem("Major") }</p>
+        <p><strong>Programming Languages:</strong> ${localStorage.getItem("Languages") }</p>
+        <p><strong>Siblings:</strong> ${localStorage.getItem("Siblings") || 'null'}</p>
+        <p><strong>Siblings Description:</strong> ${localStorage.getItem("SibDesc") }</p>
+    `;
+}
+
+let btn=document.getElementById('submit');
+
+btn.addEventListener('click', saveLocal);
+btn.addEventListener('click', showLocal);
+
+showLocal(); //لعرض الشي المحفوظ في التخزين عند عمل reload او الخروج من التاب والعوده لها
+
+//part2 
+
+
+let text = document.getElementById("textBox");
+let font = document.getElementById("font");        
+let size = document.getElementById("size");         
+let italic = document.getElementById("italic");     
+let bold = document.getElementById("bold");       
+let underline = document.getElementById("underline");
+
+document.getElementById("font").onchange = function() {
+  text.style.fontFamily = font.value;
+};
+
+document.getElementById("size").onchange = function() {
+  text.style.fontSize = size.value;
+};
+
+document.getElementById("italic").onchange = function() {
+  text.style.fontStyle = italic.checked ? "italic" : "normal";
+};
+
+document.getElementById("bold").onchange = function() {
+  text.style.fontWeight = bold.checked ? "bold" : "normal";
+};
+
+document.getElementById("underline").onchange = function() {
+  text.style.textDecoration = underline.checked ? "underline" : "none";
+};
+
+//part 3
+
+let Top = document.getElementById("backToTop");
+
+
+// عند النقر على الزر، نرجع لبداية الصفحة 
+Top.addEventListener("click", function() {
+  window.scrollTo({
+    top: 0,
+ 
+  });
+});
+
+</script>
+
+</body>
+</html>
